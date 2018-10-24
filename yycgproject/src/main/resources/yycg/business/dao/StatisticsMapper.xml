@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="yycg.business.dao.StatisticsMapper">
+	
+	<sql id="query_where">
+		<where>
+			<if test="businesscoustomer !=null">
+				<if test="businesscoustomer.cgyymc !=null and businesscoustomer.cgyymc !=''">
+					and yybusiness.useryyid in(select t.id from USERYY t where t.mc=#{businesscoustomer.cgyymc})
+				</if>
+				<if test="businesscoustomer.yycgdid !=null and businesscoustomer.yycgdid !=''">
+					and yybusiness.yycgdid = #{businesscoustomer.yycgdid}
+				</if>
+				<if test="businesscoustomer.bm !=null and businesscoustomer.bm !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.bm = #{businesscoustomer.bm})
+				</if>
+				<if test="businesscoustomer.mc !=null and businesscoustomer.mc !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.mc = #{businesscoustomer.mc})
+				</if>
+				<if test="businesscoustomer.jx !=null and businesscoustomer.jx !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.jx = #{businesscoustomer.jx})
+				</if>
+				<if test="businesscoustomer.gg !=null and businesscoustomer.gg !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.gg = #{businesscoustomer.gg})
+				</if>
+				<if test="businesscoustomer.zhxs !=null and businesscoustomer.zhxs !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.zhxs = #{businesscoustomer.zhxs})
+				</if>
+				<if test="businesscoustomer.scqymc !=null and businesscoustomer.scqymc !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.scqymc = #{businesscoustomer.scqymc})
+				</if>
+				<if test="businesscoustomer.spmc !=null and businesscoustomer.spmc !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.spmc = #{businesscoustomer.spmc})
+				</if>
+				<if test="businesscoustomer.gysmc !=null and businesscoustomer.gysmc !=''">
+					and yybusiness.usergysid in(select g.id from usergys g where g.mc= #{businesscoustomer.gysmc})
+				</if>
+				<if test="businesscoustomer.cgtimebegin !=null and businesscoustomer.cgtimebegin !=''">
+					and yybusiness.yycgdid in(select id from yycgd where TO_CHAR(cjtime,&apos;yyyy-MM-dd&apos;) &gt;= SUBSTR(#{businesscoustomer.cgtimebegin},0,10))
+				</if>
+				<if test="businesscoustomer.cgtimeend !=null and businesscoustomer.cgtimeend !=''">
+					and yybusiness.yycgdid in(select id from yycgd where TO_CHAR(cjtime,&apos;yyyy-MM-dd&apos;) &lt;= SUBSTR(#{businesscoustomer.cgtimeend},0,10))
+				</if>
+				<if test="businesscoustomer.cgzt !=null and businesscoustomer.cgzt !=''">
+					<if test="businesscoustomer.cgzt ==5 ">
+					and yybusiness.cgzt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode != #{businesscoustomer.cgzt} and dictinfo.typecode='011')
+                         
+					 </if>
+					 <if test="businesscoustomer.cgzt !=5 ">
+					and yybusiness.cgzt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode = #{businesscoustomer.cgzt} and dictinfo.typecode='011')
+                     </if>
+				</if>
+				<if test="businesscoustomer.thzt !=null and businesscoustomer.thzt !=''">
+					<if test="businesscoustomer.thzt ==5 ">
+					and yybusiness.thzt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode != #{businesscoustomer.thzt} and dictinfo.typecode='013')
+                         
+					 </if>
+					 <if test="businesscoustomer.thzt !=5 ">
+					and yybusiness.thzt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode = #{businesscoustomer.thzt} and dictinfo.typecode='013')
+                     </if>
+				</if>
+				<if test="businesscoustomer.jszt !=null and businesscoustomer.jszt !=''">
+					<if test="businesscoustomer.jszt ==5 ">
+					and yybusiness.jszt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode != #{businesscoustomer.jszt} and dictinfo.typecode='015')
+                         
+					 </if>
+					 <if test="businesscoustomer.jszt !=5 ">
+					and yybusiness.jszt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode = #{businesscoustomer.jszt} and dictinfo.typecode='015')
+                     </if>
+				</if>
+			</if>
+		</where>
+	</sql>
+	<sql id="querylikes_where">
+		<where>
+			<if test="businesscoustomer !=null">
+				<if test="businesscoustomer.bm !=null and businesscoustomer.bm !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.bm = #{businesscoustomer.bm})
+				</if>
+				<if test="businesscoustomer.mc !=null and businesscoustomer.mc !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.mc = #{businesscoustomer.mc})
+				</if>
+				<if test="businesscoustomer.jx !=null and businesscoustomer.jx !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.jx = #{businesscoustomer.jx})
+				</if>
+				<if test="businesscoustomer.gg !=null and businesscoustomer.gg !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.gg = #{businesscoustomer.gg})
+				</if>
+				<if test="businesscoustomer.zhxs !=null and businesscoustomer.zhxs !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.zhxs = #{businesscoustomer.zhxs})
+				</if>
+				<if test="businesscoustomer.scqymc !=null and businesscoustomer.scqymc !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.scqymc = #{businesscoustomer.scqymc})
+				</if>
+				<if test="businesscoustomer.spmc !=null and businesscoustomer.spmc !=''">
+					and yybusiness.ypxxid in(select t.id from ypxx t where t.spmc = #{businesscoustomer.spmc})
+				</if>
+				<if test="businesscoustomer.cgyymc !=null and businesscoustomer.cgyymc !=''">
+					and yybusiness.useryyid in(select t.id from USERYY t where t.mc like '%${businesscoustomer.gysmc}%')
+				</if>
+				<if test="businesscoustomer.gysmc !=null and businesscoustomer.gysmc !=''">
+					and yybusiness.usergysid IN(select g.id from usergys g where g.mc like '%${businesscoustomer.gysmc}%')
+				</if>
+				<if test="businesscoustomer.cgtimebegin !=null and businesscoustomer.cgtimebegin !=''">
+					and yybusiness.yycgdid in(select yycgdid from yycgd where TO_CHAR(cjtime,&apos;yyyy-MM-dd&apos;) &gt;= SUBSTR(#{businesscoustomer.cgtimebegin},0,10))
+				</if>
+				<if test="businesscoustomer.cgtimeend !=null and businesscoustomer.cgtimeend !=''">
+					and yybusiness.yycgdid in(select yycgdid from yycgd where TO_CHAR(cjtime,&apos;yyyy-MM-dd&apos;) &lt;= SUBSTR(#{businesscoustomer.cgtimeend},0,10))
+				</if>
+				<if test="businesscoustomer.cgyymc !=null and businesscoustomer.cgyymc !=''">
+					and yybusiness.useryyid in(select t.id from USERYY t where t.mc like '%${businesscoustomer.gysmc}%')
+				</if>
+				<if test="businesscoustomer.gysmc !=null and businesscoustomer.gysmc !=''">
+					and yybusiness.usergysid IN(select g.id from usergys g where g.mc like '%${businesscoustomer.gysmc}%')
+				</if>
+				<if test="businesscoustomer.cgtimebegin !=null and businesscoustomer.cgtimebegin !=''">
+					and yybusiness.yycgdid in(select yycgdid from yycgd where TO_CHAR(cjtime,&apos;yyyy-MM-dd&apos;) &gt;= SUBSTR(#{businesscoustomer.cgtimebegin},0,10))
+				</if>
+				<if test="businesscoustomer.cgtimeend !=null and businesscoustomer.cgtimeend !=''">
+					and yybusiness.yycgdid in(select yycgdid from yycgd where TO_CHAR(cjtime,&apos;yyyy-MM-dd&apos;) &lt;= SUBSTR(#{businesscoustomer.cgtimeend},0,10))
+				</if>
+				<if test="businesscoustomer.cgzt !=null and businesscoustomer.cgzt !=''">
+					<if test="businesscoustomer.cgzt ==5 ">
+					and yybusiness.cgzt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode != #{businesscoustomer.cgzt} and dictinfo.typecode='011')
+                         
+					 </if>
+					 <if test="businesscoustomer.cgzt !=5 ">
+					and yybusiness.cgzt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode = #{businesscoustomer.cgzt} and dictinfo.typecode='011')
+                     </if>
+				</if>
+				<if test="businesscoustomer.thzt !=null and businesscoustomer.thzt !=''">
+					<if test="businesscoustomer.thzt ==5 ">
+					and yybusiness.thzt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode != #{businesscoustomer.thzt} and dictinfo.typecode='013')
+                         
+					 </if>
+					 <if test="businesscoustomer.thzt !=5 ">
+					and yybusiness.thzt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode = #{businesscoustomer.thzt} and dictinfo.typecode='013')
+                     </if>
+				</if>
+				<if test="businesscoustomer.jszt !=null and businesscoustomer.jszt !=''">
+					<if test="businesscoustomer.jszt ==5 ">
+					and yybusiness.jszt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode != #{businesscoustomer.jszt} and dictinfo.typecode='015')
+                         
+					 </if>
+					 <if test="businesscoustomer.jszt !=5 ">
+					and yybusiness.jszt in(select info
+                          from dictinfo
+                         where dictinfo.dictcode = #{businesscoustomer.jszt} and dictinfo.typecode='015')
+                     </if>
+				</if>
+			</if>
+		</where>
+	</sql>
+	
+	<select id="findTotalItem" parameterType="yycg.business.pojo.vo.BusinessCoustomer" resultType="int">
+		 select    count(id)
+	                  from (select  b.ID,
+			 	b.USERYYID,
+				(select y.MC from useryy y where b.USERYYID = y.id) CGYYMC, 
+				b.yycgdid,
+				(select c.CGDMC from yycgd c where b.yycgdid=c.id)CGDMC,
+				(select p.BM from ypxx p where b.ypxxid=p.id)BM,
+				(select p.MC from ypxx p where b.ypxxid=p.id)MC,
+				(select p.JX from ypxx p where b.ypxxid=p.id)JX,
+				(select p.GG from ypxx p where b.ypxxid=p.id)GG,
+				(select p.ZHXS from ypxx p where b.ypxxid=p.id)ZHXS,
+				(select p.SCQYMC from ypxx p where b.ypxxid=p.id)SCQYMC,
+				(select p.SPMC from ypxx p where b.ypxxid=p.id)SPMC,
+				b.ZBJG, b.JYJG, b.CGL, b.CGJE,
+				(select dictinfo.info
+				          from dictinfo
+				         where dictinfo.typecode = '011'
+				           and dictinfo.dictcode = b.CGZT)CGZT,
+				b.RKL, b.RKJE, b.THL, b.THJE, 
+				(select dictinfo.info
+		                  from dictinfo
+		                 where dictinfo.typecode = '013'
+		                   and dictinfo.dictcode = b.THZT) THZT, 
+		        b.JSL, b.JSJE, 
+				(select dictinfo.info
+				          from dictinfo
+				         where dictinfo.typecode = '015'
+				           and dictinfo.dictcode = b.JSZT)JSZT
+				from 
+                <if test="businesscoustomer !=null">
+			 		<if test="businesscoustomer.year !=null and businesscoustomer.year !=''">
+						${businesscoustomer.year}
+					</if>
+					<if test="businesscoustomer.year ==null or businesscoustomer.year ==''">
+						YYBUSINESS
+					</if>
+			 	</if>
+			 	<if test="businesscoustomer ==null ">
+			 		YYBUSINESS
+			 	</if>
+				 b)yybusiness
+				<include refid="query_where"></include>
+	</select>
+	<select id="qeuryBusinessDetail" parameterType="yycg.business.pojo.vo.BusinessCoustomer" 
+	resultType="yycg.business.pojo.vo.BusinessCoustomer">
+	<!-- 分页 -->
+		<if test="pageQuery!=null">
+			select *
+			from (select page_1.*, rownum rn from (
+		</if>
+		<![CDATA[
+		select * from (select b.ID,
+		               b.USERYYID,
+		               (select y.MC from useryy y where b.USERYYID = y.id) CGYYMC,
+		               b.yycgdid,
+		               (select c.CGDMC from yycgd c where b.yycgdid = c.id) CGDMC,
+		               (select p.BM from ypxx p where b.ypxxid = p.id) BM,
+		               (select p.MC from ypxx p where b.ypxxid = p.id) MC,
+		               (select p.JX from ypxx p where b.ypxxid = p.id) JX,
+		               (select p.GG from ypxx p where b.ypxxid = p.id) GG,
+		               (select p.ZHXS from ypxx p where b.ypxxid = p.id) ZHXS,
+		               (select p.SCQYMC from ypxx p where b.ypxxid = p.id) SCQYMC,
+		               (select p.SPMC from ypxx p where b.ypxxid = p.id) SPMC,
+		               b.ZBJG,
+		               b.JYJG,
+		               b.CGL,
+		               b.CGJE,
+		               (select dictinfo.info
+		                  from dictinfo
+		                 where dictinfo.typecode = '011'
+		                   and dictinfo.dictcode = b.CGZT) CGZT,
+		               b.RKL,
+		               b.RKJE,
+		               b.THL,
+		               b.THJE,
+		               (select dictinfo.info
+		                  from dictinfo
+		                 where dictinfo.typecode = '013'
+		                   and dictinfo.dictcode = b.THZT) THZT,
+		               b.JSL,
+		               b.JSJE,
+		               (select dictinfo.info
+				          from dictinfo
+				         where dictinfo.typecode = '015'
+				           and dictinfo.dictcode = b.JSZT)JSZT
+		          		from  ]]>
+                           <if test="businesscoustomer !=null">
+						 		<if test="businesscoustomer.year !=null and businesscoustomer.year !=''">
+									${businesscoustomer.year}
+								</if>
+								<if test="businesscoustomer.year ==null or businesscoustomer.year ==''">
+									YYBUSINESS
+								</if>
+						 	</if>
+						 	<if test="businesscoustomer ==null ">
+						 		YYBUSINESS
+						 	</if>
+                            b)yybusiness
+		<!--引用sql片段 -->
+		<include refid="query_where"></include>
+		<if test="pageQuery!=null">
+		<![CDATA[
+		) page_1
+         where rownum <= #{pageQuery.PageQuery_end}) page_2
+		 where rn > #{pageQuery.PageQuery_start}
+		 ]]>
+		</if>
+	
+	
+	</select>
+	
+	<select id="findTotalPurchaseorders" parameterType="yycg.business.pojo.vo.BusinessCoustomer" resultType="int">
+	select    count(id)
+	                  from (select  b.ID,
+        (select y.MC from useryy y where b.USERYYID = y.id) CGYYMC, 
+        b.yycgdid,
+        b.ypxxid,
+        (select c.cgdmc from yycgd c where c.yycgdid=b.yycgdid) cgdmc,
+        (select c.cjtime from yycgd c where c.yycgdid=b.yycgdid)cjtime,
+        (select c.tjtime from yycgd c where c.yycgdid=b.yycgdid)tjtime,
+        (select c.shtime from yycgd c where c.yycgdid=b.yycgdid)shtime,
+        b.cgl,
+        b.cgje,
+        (select dictinfo.info
+                  from dictinfo,YYBUSINESS b
+                 where dictinfo.typecode = '011'
+                   and dictinfo.dictcode = b.CGZT)CGZT,
+        b.rkl,
+        b.rkje,
+        b.thl,
+        b.thje,
+        (select dictinfo.info
+               from dictinfo
+              where dictinfo.typecode = '013'
+                and dictinfo.dictcode = b.THZT) THZT,
+        b.jsl,
+        b.jsje,
+        (select dictinfo.info
+               from dictinfo
+              where dictinfo.typecode = '015'
+                and dictinfo.dictcode = b.JSZT) JSZT
+				from 
+                <if test="businesscoustomer !=null">
+					<if test="businesscoustomer.year !=null and businesscoustomer.year !=''">
+						${businesscoustomer.year}
+					</if>
+					<if test="businesscoustomer.year ==null or businesscoustomer.year ==''">
+						YYBUSINESS
+					</if>
+			 	</if>
+			 	<if test="businesscoustomer ==null ">
+			 		YYBUSINESS
+			 	</if>
+                    b order by cgdmc
+                         )yybusiness
+				<include refid="query_where"></include>
+	</select>
+	<select id="qeuryPurchaseorders" parameterType="yycg.business.pojo.vo.BusinessCoustomer" resultType="yycg.business.pojo.vo.BusinessCoustomer">
+	<!-- 分页 -->
+		<if test="pageQuery!=null">
+			select *
+			from (select page_1.*, rownum rn from (
+		</if>
+		<![CDATA[
+		select * from (select  b.ID,
+        (select y.MC from useryy y where b.USERYYID = y.id) CGYYMC, 
+        b.yycgdid,
+        b.ypxxid,
+        (select c.cgdmc from yycgd c where c.yycgdid=b.yycgdid) cgdmc,
+        (select c.cjtime from yycgd c where c.yycgdid=b.yycgdid)cjtime,
+        (select c.tjtime from yycgd c where c.yycgdid=b.yycgdid)tjtime,
+        (select c.shtime from yycgd c where c.yycgdid=b.yycgdid)shtime,
+        b.cgl,
+        b.cgje,
+        (select dictinfo.info
+                  from dictinfo
+                 where dictinfo.typecode = '011'
+                   and dictinfo.dictcode = b.CGZT)CGZT,
+        b.rkl,
+        b.rkje,
+        b.thl,
+        (select dictinfo.info
+               from dictinfo
+              where dictinfo.typecode = '013'
+                and dictinfo.dictcode = b.THZT) THZT,
+        b.thje,
+        b.jsl,
+        b.jsje,
+       (select dictinfo.info
+               from dictinfo
+              where dictinfo.typecode = '015'
+                and dictinfo.dictcode = b.JSZT) JSZT
+				from ]]>
+                <if test="businesscoustomer !=null">
+					<if test="businesscoustomer.year !=null and businesscoustomer.year !=''">
+						${businesscoustomer.year}
+					</if>
+					<if test="businesscoustomer.year ==null or businesscoustomer.year ==''">
+						YYBUSINESS
+					</if>
+			 	</if>
+			 	<if test="businesscoustomer ==null ">
+			 		YYBUSINESS
+			 	</if>
+                    b order by cgdmc
+                          )  YYBUSINESS
+				<include refid="query_where"></include>
+				<if test="pageQuery!=null">
+		<![CDATA[
+		) page_1
+         where rownum <= #{pageQuery.PageQuery_end}) page_2
+		 where rn > #{pageQuery.PageQuery_start}
+		 ]]>
+		</if>
+	</select>
+	
+	<select id="findDetailByCGDId" parameterType="String" 
+	resultType="yycg.business.pojo.vo.BusinessCoustomer">
+		select b.ID,
+               b.USERYYID,
+               (select y.MC from useryy y where b.USERYYID = y.id) CGYYMC,
+               b.yycgdid,
+               (select c.CGDMC from yycgd c where b.yycgdid = c.id) CGDMC,
+               (select p.BM from ypxx p where b.ypxxid = p.id) BM,
+               (select p.MC from ypxx p where b.ypxxid = p.id) MC,
+               (select p.JX from ypxx p where b.ypxxid = p.id) JX,
+               (select p.GG from ypxx p where b.ypxxid = p.id) GG,
+               (select p.ZHXS from ypxx p where b.ypxxid = p.id) ZHXS,
+               (select p.SCQYMC from ypxx p where b.ypxxid = p.id) SCQYMC,
+               (select p.SPMC from ypxx p where b.ypxxid = p.id) SPMC,
+               b.ZBJG,
+               b.JYJG,
+               b.CGL,
+               (select dictinfo.info
+                  from dictinfo
+                 where dictinfo.typecode = '011'
+                   and dictinfo.dictcode = b.CGZT) CGZT,
+               b.RKL,
+               b.RKJE,
+               b.THL,
+               b.THJE,
+               (select dictinfo.info
+	               from dictinfo
+	              where dictinfo.typecode = '013'
+	                and dictinfo.dictcode = b.THZT) THZT,
+               b.JSL,
+               b.JSJE,
+               (select dictinfo.info
+				          from dictinfo
+				         where dictinfo.typecode = '015'
+				           and dictinfo.dictcode = b.JSZT)JSZT
+			   from 
+			   <if test="year !=null and year !=''">
+					${year}
+				</if>
+				<if test="year ==null or year ==''">
+					YYBUSINESS
+				</if>
+				b where b.yycgdid = #{yycgdid}
+	</select>
+	
+	<select id="getCountByGys" parameterType="yycg.business.pojo.vo.BusinessCoustomer" resultType="int">
+	select    count(id)
+                  	from (select  b.ID,
+                 	b.usergysid,
+			        (select g.MC from usergys g where b.USERGYSID = g.id) gysmc, 
+			        b.yycgdid,
+			        (select c.cgdmc from yycgd c where c.yycgdid=b.yycgdid) cgdmc,
+			        (select c.cjtime from yycgd c where c.yycgdid=b.yycgdid)cjtime,
+			        (select c.tjtime from yycgd c where c.yycgdid=b.yycgdid)tjtime,
+			        (select c.shtime from yycgd c where c.yycgdid=b.yycgdid)shtime,
+			        b.cgl,
+			        b.cgje,
+			         (select dictinfo.info
+	                  from dictinfo
+	                 where dictinfo.typecode = '011'
+	                   and dictinfo.dictcode = b.CGZT)CGZT,
+			        b.rkl,
+			        b.rkje,
+			        b.thl,
+			        b.thje,
+			        (select dictinfo.info
+		               from dictinfo
+		              where dictinfo.typecode = '013'
+		                and dictinfo.dictcode = b.THZT) THZT,
+			        b.jsl,
+			        b.jsje,
+			        (select dictinfo.info
+				          from dictinfo
+				         where dictinfo.typecode = '015'
+				           and dictinfo.dictcode = b.JSZT)JSZT
+					from 
+	                <if test="businesscoustomer !=null">
+						<if test="businesscoustomer.year !=null and businesscoustomer.year !=''">
+							${businesscoustomer.year}
+						</if>
+						<if test="businesscoustomer.year ==null or businesscoustomer.year ==''">
+							YYBUSINESS
+						</if>
+				 	</if>
+				 	<if test="businesscoustomer ==null ">
+				 		YYBUSINESS
+				 	</if>
+	                    b order by gysmc
+	                         )yybusiness
+					<include refid="querylikes_where"></include>
+	</select>
+	<select id="statisticsByGys" parameterType="yycg.business.pojo.vo.BusinessCoustomer" resultType="yycg.business.pojo.vo.BusinessCoustomer">
+	<!-- 分页 -->
+		<if test="pageQuery!=null">
+			select *
+			from (select page_1.*, rownum rn from (
+		</if>
+		<![CDATA[
+		select * from (select  b.ID,
+		b.usergysid,
+        (select g.MC from usergys g where b.USERGYSID = g.id) gysmc,
+        b.yycgdid,
+        (select c.cgdmc from yycgd c where c.yycgdid=b.yycgdid) cgdmc,
+        (select c.cjtime from yycgd c where c.yycgdid=b.yycgdid)cjtime,
+        (select c.tjtime from yycgd c where c.yycgdid=b.yycgdid)tjtime,
+        (select c.shtime from yycgd c where c.yycgdid=b.yycgdid)shtime,
+        b.cgl,
+        b.cgje,
+        (select dictinfo.info
+                  from dictinfo
+                 where dictinfo.typecode = '011'
+                   and dictinfo.dictcode = b.CGZT)CGZT,
+        b.rkl,
+        b.rkje,
+        b.thl,
+        b.thje,
+        (select dictinfo.info
+		               from dictinfo
+		              where dictinfo.typecode = '013'
+		                and dictinfo.dictcode = b.THZT) THZT,
+        b.jsl,
+        b.jsje,
+        (select dictinfo.info
+				          from dictinfo
+				         where dictinfo.typecode = '015'
+				           and dictinfo.dictcode = b.JSZT)JSZT
+				from  ]]>
+                <if test="businesscoustomer !=null">
+					<if test="businesscoustomer.year !=null and businesscoustomer.year !=''">
+						${businesscoustomer.year}
+					</if>
+					<if test="businesscoustomer.year ==null or businesscoustomer.year ==''">
+						YYBUSINESS
+					</if>
+			 	</if>
+			 	<if test="businesscoustomer ==null ">
+			 		YYBUSINESS
+			 	</if>
+                    b order by gysmc
+                         )yybusiness
+				<include refid="querylikes_where"></include>
+				<if test="pageQuery!=null">
+		<![CDATA[
+		) page_1
+         where rownum <= #{pageQuery.PageQuery_end}) page_2
+		 where rn > #{pageQuery.PageQuery_start}
+		 ]]>
+		</if>
+	</select>
+	
+	<select id="getCountByHospital" parameterType="yycg.business.pojo.vo.BusinessCoustomer" resultType="int">
+	select    count(id)
+                  	from (select  b.ID,
+	                b.USERYYID,
+	                b.yycgdid,
+	                (select y.MC from useryy y where b.USERYYID = y.id) CGYYMC,
+                    b.cgl,
+			        b.cgje,
+			        (select dictinfo.info
+			                  from dictinfo
+			                 where dictinfo.typecode = '011'
+			                   and dictinfo.dictcode = b.CGZT)CGZT,
+			        b.rkl,
+			        b.rkje,
+			        b.thl,
+			        b.thje,
+			        (select dictinfo.info
+					               from dictinfo
+					              where dictinfo.typecode = '013'
+					                and dictinfo.dictcode = b.THZT) THZT,
+			        b.jsl,
+			        b.jsje,
+			        (select dictinfo.info
+							          from dictinfo
+							         where dictinfo.typecode = '015'
+							           and dictinfo.dictcode = b.JSZT)JSZT
+					from 
+	                <if test="businesscoustomer !=null">
+						<if test="businesscoustomer.year !=null and businesscoustomer.year !=''">
+							${businesscoustomer.year}
+						</if>
+						<if test="businesscoustomer.year ==null or businesscoustomer.year ==''">
+							YYBUSINESS
+						</if>
+				 	</if>
+				 	<if test="businesscoustomer ==null ">
+				 		YYBUSINESS
+				 	</if>
+	                    b order by CGYYMC
+	                         )yybusiness
+					<include refid="querylikes_where"></include>
+	</select>
+	
+	<select id="statisticsByHospital" parameterType="yycg.business.pojo.vo.BusinessCoustomer" resultType="yycg.business.pojo.vo.BusinessCoustomer">
+	<!-- 分页 -->
+		<if test="pageQuery!=null">
+			select *
+			from (select page_1.*, rownum rn from (
+		</if>
+		<![CDATA[
+		select * from (select  b.ID,
+	                b.USERYYID,
+	                b.yycgdid,
+	                (select y.MC from useryy y where b.USERYYID = y.id) CGYYMC,
+			        b.cgl,
+			        b.cgje,
+			        (select dictinfo.info
+			                  from dictinfo
+			                 where dictinfo.typecode = '011'
+			                   and dictinfo.dictcode = b.CGZT)CGZT,
+			        b.rkl,
+			        b.rkje,
+			        b.thl,
+			        b.thje,
+			        (select dictinfo.info
+					               from dictinfo
+					              where dictinfo.typecode = '013'
+					                and dictinfo.dictcode = b.THZT) THZT,
+			        b.jsl,
+			        b.jsje,
+			        (select dictinfo.info
+							          from dictinfo
+							         where dictinfo.typecode = '015'
+							           and dictinfo.dictcode = b.JSZT)JSZT
+					from  ]]>
+	                <if test="businesscoustomer !=null">
+						<if test="businesscoustomer.year !=null and businesscoustomer.year !=''">
+							${businesscoustomer.year}
+						</if>
+						<if test="businesscoustomer.year ==null or businesscoustomer.year ==''">
+							YYBUSINESS
+						</if>
+				 	</if>
+				 	<if test="businesscoustomer ==null ">
+				 		YYBUSINESS
+				 	</if>
+	                    b order by CGYYMC
+                         )yybusiness
+				<include refid="querylikes_where"></include>
+				<if test="pageQuery!=null">
+		<![CDATA[
+		) page_1
+         where rownum <= #{pageQuery.PageQuery_end}) page_2
+		 where rn > #{pageQuery.PageQuery_start}
+		 ]]>
+		</if>
+	</select>
+	
+	<select id="getCountBymedicine" parameterType="yycg.business.pojo.vo.BusinessCoustomer" resultType="int">
+	select    count(id)
+                  	from (select  b.ID,
+	                b.USERYYID,
+	                b.yycgdid,
+	                b.ypxxid,
+	                (select p.BM from ypxx p where b.ypxxid = p.id) BM,
+	                (select p.MC from ypxx p where b.ypxxid = p.id) MC,
+	                (select p.JX from ypxx p where b.ypxxid = p.id) JX,
+	                (select p.GG from ypxx p where b.ypxxid = p.id) GG,
+	                (select p.ZHXS from ypxx p where b.ypxxid = p.id) ZHXS,
+	                (select p.SCQYMC from ypxx p where b.ypxxid = p.id) SCQYMC,
+	                (select p.SPMC from ypxx p where b.ypxxid = p.id) SPMC,
+                    b.cgl,
+			        b.cgje,
+			        (select dictinfo.info
+			                  from dictinfo
+			                 where dictinfo.typecode = '011'
+			                   and dictinfo.dictcode = b.CGZT)CGZT,
+			        b.rkl,
+			        b.rkje,
+			        b.thl,
+			        b.thje,
+			        (select dictinfo.info
+					               from dictinfo
+					              where dictinfo.typecode = '013'
+					                and dictinfo.dictcode = b.THZT) THZT,
+			        b.jsl,
+			        b.jsje,
+			        (select dictinfo.info
+							          from dictinfo
+							         where dictinfo.typecode = '015'
+							           and dictinfo.dictcode = b.JSZT)JSZT
+					from 
+	                <if test="businesscoustomer !=null">
+						<if test="businesscoustomer.year !=null and businesscoustomer.year !=''">
+							${businesscoustomer.year}
+						</if>
+						<if test="businesscoustomer.year ==null or businesscoustomer.year ==''">
+							YYBUSINESS
+						</if>
+				 	</if>
+				 	<if test="businesscoustomer ==null ">
+				 		YYBUSINESS
+				 	</if>
+	                    b order by MC
+	                         )yybusiness
+					<include refid="querylikes_where"></include>
+	</select>
+	
+	<select id="statisticsBymedicine" parameterType="yycg.business.pojo.vo.BusinessCoustomer" resultType="yycg.business.pojo.vo.BusinessCoustomer">
+	<!-- 分页 -->
+		<if test="pageQuery!=null">
+			select *
+			from (select page_1.*, rownum rn from (
+		</if>
+		<![CDATA[
+		select * from (select  b.ID,
+	                b.USERYYID,
+	                b.yycgdid,
+	                b.ypxxid,
+	                (select p.BM from ypxx p where b.ypxxid = p.id) BM,
+	                (select p.MC from ypxx p where b.ypxxid = p.id) MC,
+	                (select p.JX from ypxx p where b.ypxxid = p.id) JX,
+	                (select p.GG from ypxx p where b.ypxxid = p.id) GG,
+	                (select p.ZHXS from ypxx p where b.ypxxid = p.id) ZHXS,
+	                (select p.SCQYMC from ypxx p where b.ypxxid = p.id) SCQYMC,
+	                (select p.SPMC from ypxx p where b.ypxxid = p.id) SPMC,
+			        b.cgl,
+			        b.cgje,
+			        (select dictinfo.info
+			                  from dictinfo
+			                 where dictinfo.typecode = '011'
+			                   and dictinfo.dictcode = b.CGZT)CGZT,
+			        b.rkl,
+			        b.rkje,
+			        b.thl,
+			        b.thje,
+			        (select dictinfo.info
+					               from dictinfo
+					              where dictinfo.typecode = '013'
+					                and dictinfo.dictcode = b.THZT) THZT,
+			        b.jsl,
+			        b.jsje,
+			        (select dictinfo.info
+							          from dictinfo
+							         where dictinfo.typecode = '015'
+							           and dictinfo.dictcode = b.JSZT)JSZT
+					from  ]]>
+	                <if test="businesscoustomer !=null">
+						<if test="businesscoustomer.year !=null and businesscoustomer.year !=''">
+							${businesscoustomer.year}
+						</if>
+						<if test="businesscoustomer.year ==null or businesscoustomer.year ==''">
+							YYBUSINESS
+						</if>
+				 	</if>
+				 	<if test="businesscoustomer ==null ">
+				 		YYBUSINESS
+				 	</if>
+	                    b order by MC
+                         )yybusiness
+				<include refid="querylikes_where"></include>
+				<if test="pageQuery!=null">
+		<![CDATA[
+		) page_1
+         where rownum <= #{pageQuery.PageQuery_end}) page_2
+		 where rn > #{pageQuery.PageQuery_start}
+		 ]]>
+		</if>
+	</select>
+	
+	<select id="findDetailByYpbm" parameterType="yycg.business.pojo.vo.BusinessCoustomer" 
+	resultType="yycg.business.pojo.vo.BusinessCoustomer">
+		select b.ID,
+               b.USERYYID,
+               (select y.MC from useryy y where b.USERYYID = y.id) CGYYMC,
+               b.yycgdid,
+               (select c.CGDMC from yycgd c where b.yycgdid = c.id) CGDMC,
+               (select p.BM from ypxx p where b.ypxxid = p.id) BM,
+               (select p.MC from ypxx p where b.ypxxid = p.id) MC,
+               (select p.JX from ypxx p where b.ypxxid = p.id) JX,
+               (select p.GG from ypxx p where b.ypxxid = p.id) GG,
+               (select p.ZHXS from ypxx p where b.ypxxid = p.id) ZHXS,
+               (select p.SCQYMC from ypxx p where b.ypxxid = p.id) SCQYMC,
+               (select p.SPMC from ypxx p where b.ypxxid = p.id) SPMC,
+               b.ZBJG,
+               b.JYJG,
+               b.CGL,
+               (select dictinfo.info
+                  from dictinfo
+                 where dictinfo.typecode = '011'
+                   and dictinfo.dictcode = b.CGZT) CGZT,
+               b.RKL,
+               b.RKJE,
+               b.THL,
+               b.THJE,
+               (select dictinfo.info
+	               from dictinfo
+	              where dictinfo.typecode = '013'
+	                and dictinfo.dictcode = b.THZT) THZT,
+               b.JSL,
+               b.JSJE,
+               (select dictinfo.info
+				          from dictinfo
+				         where dictinfo.typecode = '015'
+				           and dictinfo.dictcode = b.JSZT)JSZT
+			   from 
+				<if test="year !=null and year !=''">
+					${year}
+				</if>
+				<if test="year ==null or year ==''">
+					YYBUSINESS
+				</if>
+				b where b.ypxxid in (select id from ypxx where bm = #{bm} ) 
+	</select>
+</mapper>

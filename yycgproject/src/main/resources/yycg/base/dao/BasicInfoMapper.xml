@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yycg.base.dao.BasicInfoMapper">
+
+	<!--查询系统参数配置表包含查询条件 分页 -->
+	<!--sql片段 -->
+	<sql id="query_where">
+		<where>
+			<if test="basicinfocoustomer!=null">
+				<if test="basicinfocoustomer.id!=null and basicinfocoustomer.id!=''">
+					and basicinfo.id=#{basicinfocoustomer.id}
+				</if>
+				<if test="basicinfocoustomer.name!=null and basicinfocoustomer.name!=''">
+					and basicinfo.name=#{basicinfocoustomer.name}
+				</if>
+				<if test="basicinfocoustomer.value!=null and basicinfocoustomer.value!=''">
+					and basicinfo.value=#{basicinfocoustomer.value}
+				</if>
+				<if test="basicinfocoustomer.type!=null and basicinfocoustomer.type!=''">
+					and basicinfo.type=#{basicinfocoustomer.type}
+				</if>
+				<if test="basicinfocoustomer.isalive!=null and basicinfocoustomer.isalive!=''">
+					and basicinfo.isalive=#{basicinfocoustomer.isalive}
+				</if>
+			</if>
+		</where>
+	</sql>
+
+	<select id="findTotalItem" parameterType="yycg.base.pojo.vo.BasicInfoVo" resultType="int">
+	select count(id) from (select * from basicinfo) basicinfo
+		<!--引用sql片段 -->
+		<include refid="query_where"></include>
+	</select>
+
+	<select id="findAllBasicinfo" parameterType="yycg.base.pojo.vo.BasicInfoVo" resultType="yycg.base.pojo.vo.BasicInfoCoustomer">
+	<!-- 分页 -->
+	<if test="pageQuery!=null">
+		select *
+		from (select page_1.*, rownum rn
+		from (
+	</if>
+	<![CDATA[
+		select * from basicinfo
+			]]>
+			<!--引用sql片段 -->
+			<include refid="query_where"></include>
+			<if test="pageQuery!=null">
+			<![CDATA[
+			) page_1
+	         where rownum <= #{pageQuery.PageQuery_end}) page_2
+	 where rn > #{pageQuery.PageQuery_start}
+	 ]]>
+			</if>
+	</select>
+	
+	<insert id="insertBasicinfo" parameterType="yycg.base.pojo.vo.BasicInfoCoustomer">
+	insert into basicinfo 
+	 	<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id!=null">
+			  id,
+			</if>
+			<if test="name!=null">
+			  name,
+			</if>
+			<if test="value!=null">
+			  value,
+			</if>
+			<if test="type!=null">
+			  type,
+			</if>
+			<if test="tag!=null">
+			  tag,
+			</if>
+			<if test="isalive!=null">
+			  isalive,
+			</if>
+			<if test="vchar1!=null">
+			  vchar1,
+			</if>
+			<if test="vchar2!=null">
+			  vchar2,
+			</if>
+			<if test="vchar3!=null">
+			  vchar3
+			</if>
+		</trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+		 <if test="id!=null">
+			  #{id,jdbcType=VARCHAR},
+			</if>
+			<if test="name!=null">
+			 #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="value!=null">
+			  #{value,jdbcType=VARCHAR},
+			</if>
+			<if test="type!=null">
+			  #{type,jdbcType=VARCHAR},
+			</if>
+			<if test="tag!=null">
+			  #{tag,jdbcType=VARCHAR},
+			</if>
+			<if test="isalive!=null">
+			  #{isalive,jdbcType=VARCHAR},
+			</if>
+			<if test="vchar1!=null">
+			 #{vchar1,jdbcType=VARCHAR},
+			</if>
+			<if test="vchar2!=null">
+			  #{vchar2,jdbcType=VARCHAR},
+			</if>
+			<if test="vchar3!=null">
+			 #{vchar3,jdbcType=VARCHAR}
+			</if>
+		 </trim>	
+	</insert>
+	
+	<update id="updatetBasicInfo" parameterType="yycg.base.pojo.vo.BasicInfoCoustomer"> 
+	update basicinfo b
+		<set>
+			<if test="name!=null">
+			  name=#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="value!=null">
+			  value=#{value,jdbcType=VARCHAR},
+			</if>
+			<if test="type!=null">
+			  type=#{type,jdbcType=VARCHAR},
+			</if>
+			<if test="tag!=null">
+			  tag=#{tag,jdbcType=VARCHAR},
+			</if>
+			<if test="isalive!=null">
+			  isalive=#{isalive,jdbcType=VARCHAR},
+			</if>
+			<if test="vchar1!=null">
+			  vchar1=#{vchar1,jdbcType=VARCHAR},
+			</if>
+			<if test="vchar2!=null">
+			  vchar2=#{vchar2,jdbcType=VARCHAR},
+			</if>
+			<if test="vchar3!=null">
+			  vchar3=#{vchar3,jdbcType=VARCHAR}
+			</if>
+		</set>
+		where b.id=#{id,jdbcType=VARCHAR}
+	</update>
+	
+	<delete id="deleteBasicInfoById"  parameterType="String">
+		delete from basicinfo b
+			where b.id=#{id,jdbcType=VARCHAR}
+	</delete>
+	
+	<select id="findBasicInfoByName" parameterType="String" resultType="yycg.base.pojo.po.BasicInfo">
+	select * from basicinfo b
+		where b.name=#{name,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="findBasicInfoById" parameterType="String" resultType="yycg.base.pojo.vo.BasicInfoCoustomer">
+	select * from basicinfo b
+		where b.id=#{id,jdbcType=VARCHAR}
+	</select>
+</mapper>

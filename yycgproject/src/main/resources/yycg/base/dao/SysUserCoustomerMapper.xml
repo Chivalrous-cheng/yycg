@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="yycg.base.dao.SysUserCoustomerMapper">
+
+	<!--查询用户 包含查询条件 分页 -->
+	<!--sql片段 -->
+	<sql id="query_where">
+		<where>
+			<if test="sysusercoustomer!=null">
+				<if test="sysusercoustomer.userid!=null and sysusercoustomer.userid!=''">
+					and sysuser.userid=#{sysusercoustomer.userid}
+				</if>
+				<if
+					test="sysusercoustomer.username!=null and sysusercoustomer.username!=''">
+					and sysuser.username=#{sysusercoustomer.username}
+				</if>
+				<if test="sysusercoustomer.mc!=null and sysusercoustomer.mc!=''">
+					and sysuser.mc like '%${sysusercoustomer.mc}%'
+				</if>
+				<if
+					test="sysusercoustomer.groupid!=null and sysusercoustomer.groupid!=''">
+					and sysuser.groupid=#{sysusercoustomer.groupid}
+				</if>
+			</if>
+		</where>
+	</sql>
+	
+	<select id="findUser" resultType="yycg.base.pojo.vo.SysUserCoustomer"
+		parameterType="yycg.base.pojo.vo.SysUserVo">
+		<!-- 分页 -->
+		<if test="pageQuery!=null">
+			select *
+			from (select page_1.*, rownum rn
+			from (
+		</if>
+		<![CDATA[
+		select * from (select t.userid,
+    t.id,
+       t.username,
+       t.groupid,
+       t.userstate,
+       (select info
+          from dictinfo
+         where typecode = 's01'
+           and dictcode = t.groupid) grouptype,
+       t.sysid,
+       decode(t.groupid, '1',
+         (select mc
+           from userjd
+          where id = t.sysid),
+          '2',
+           (select mc
+                   from userjd
+                  where id = t.sysid), '3',
+                   (select mc
+                           from useryy
+                          where id = t.sysid), '4',
+                           (select mc
+                                   from usergys
+                                  where id = t.sysid)) mc from SYSUSER t) sysuser
+		]]>
+		<!--引用sql片段 -->
+		<include refid="query_where"></include>
+		<if test="pageQuery!=null">
+		<![CDATA[
+		) page_1
+         where rownum <= #{pageQuery.PageQuery_end}) page_2
+ where rn > #{pageQuery.PageQuery_start}
+ ]]>
+		</if>
+	</select>
+	
+	
+	
+	<!-- 统计总记录树 -->
+	<select id="findTotalItem" parameterType="yycg.base.pojo.vo.SysUserVo" resultType="int">
+	 select    count(id)
+                  from (select t.userid,
+                               t.id,
+                               t.username,
+                               t.groupid,
+                               t.userstate,
+                               (select info
+                                  from dictinfo
+                                 where typecode = 's01'
+                                   and dictcode = t.groupid) grouptype,
+                               t.sysid,
+                               decode(t.groupid,
+                                      '1',
+                                      (select mc from userjd where id = t.sysid),
+                                      '2',
+                                      (select mc from userjd where id = t.sysid),
+                                      '3',
+                                      (select mc from useryy where id = t.sysid),
+                                      '4',
+                                      (select mc from usergys where id = t.sysid)) mc
+                          from SYSUSER t) sysuser
+               <include refid="query_where"></include>
+	
+	</select>
+	
+	<select id="findUserById" parameterType="String" resultType="yycg.base.pojo.vo.SysUserCoustomer">
+	 select t.userid,
+            t.id,
+            t.username,
+            t.groupid,
+            t.userstate,
+            t.createtime,
+            (select info
+               from dictinfo
+              where typecode = 's01'
+                and dictcode = t.groupid) grouptype,
+            t.sysid,
+            decode(t.groupid,
+                   '1',
+                   (select mc from userjd where id = t.sysid),
+                   '2',
+                   (select mc from userjd where id = t.sysid),
+                   '3',
+                   (select mc from useryy where id = t.sysid),
+                   '4',
+                   (select mc from usergys where id = t.sysid)) mc
+       from SYSUSER t
+       where t.id = #{id,jdbcType=VARCHAR}
+               
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>

@@ -1,0 +1,33 @@
+{
+   "menus" : [{"icon" : "icon-sys","menuid" : "1","menuname" : "系统管理","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "用户管理","url" : "/yycgproject/user/queryuser.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "供货商维护","url" : "/yycgproject/gys/queryusergys.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "监督单位维护","url" : "/yycgproject/userjd/queryuserjd.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "系统参数进行配置","url" : "/yycgproject/basicinfo/querybasicinfo.action"
+                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "数据字典管理","url" : "/yycgproject/dictinfo/querydictinfo.action"
+                 }] 
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "药品目录 ","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录导出","url" : "/yycgproject/ypml/exportYpxx.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录导入","url" : "/yycgproject/ypml/importypxx.action"
+                 }] 
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "统计分析 ","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "交易明细查询","url" : "/yycgproject/tjfx/businessDetail.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "按采购单统计","url" : "/yycgproject/tjfx/purchaseorders.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "按供货商统计","url" : "/yycgproject/tjfx/supplier.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "按医院统计","url" : "/yycgproject/tjfx/hospital.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "按药品统计","url" : "/yycgproject/tjfx/medicine.action"
+                 }] 
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "供货商药品目录 ","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "供货商药品目录维护","url" : "/yycgproject/ypml/querygysypml.action"
+                 }] 
+               }
+             ]
+}

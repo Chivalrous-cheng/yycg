@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: yycg.base.dao.mapper.SysuserCustomMapperTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.163 sec <<< FAILURE!
+testFindSysuserById(yycg.base.dao.mapper.SysuserCustomMapperTest)  Time elapsed: 1.152 sec  <<< ERROR!
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): yycg.base.dao.mapper.SysuserCustomMapper.findSysuserById
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:184)
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:38)
+	at org.apache.ibatis.binding.MapperProxy.cachedMapperMethod(MapperProxy.java:49)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:42)
+	at com.sun.proxy.$Proxy6.findSysuserById(Unknown Source)
+	at yycg.base.dao.mapper.SysuserCustomMapperTest.testFindSysuserById(SysuserCustomMapperTest.java:29)
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>  
+    <!-- 数据库驱动包位置 -->  
+    <classPathEntry  
+        location="D:\opensource\ojdbc14-10.2.0.1.0.jar" />  
+    <context id="context1">  
+        <commentGenerator>  
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->  
+            <property name="suppressAllComments" value="true"/>  
+        </commentGenerator>  
+        <!-- 数据库链接URL、用户名、密码 -->  
+        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"  
+            connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:orcl" userId="yycg" password="yycg1234" />  
+        <!-- 生成模型的包名和位置 -->  
+        <javaModelGenerator targetPackage="yycg.base.pojo.po" targetProject="yycgproject" />  
+        <!-- 生成的映射文件报名和位置 -->  
+        <sqlMapGenerator targetPackage="yycg.base.dao" targetProject="yycgproject" />  
+        <!-- 生成DAO的包名和位置 -->  
+        <javaClientGenerator targetPackage="yycg.base.dao" targetProject="yycgproject" type="XMLMAPPER" />  
+        <!-- 要生成的那些表(更改tableName 和domainObjectName 就可以了) -->  
+         <!-- domainObjectName是表对应的实体类名,  tableName是对应的表名-->  
+        <!-- table可以配置多个,enable*几个参数是为了自动生成一些额外的sql操作,可以关闭-->  
+       <!--  <table domainObjectName="Student" tableName="student"  
+            enableCountByExample="false" enableUpdateByExample="true"  
+            enableDeleteByExample="false" enableSelectByExample="true"  
+            selectByExampleQueryId="true">  
+        </table>   -->
+       <!--  <table domainObjectName="DictInfo" tableName="DICTINFO"  
+            enableCountByExample="false" enableUpdateByExample="true"  
+            enableDeleteByExample="false" enableSelectByExample="true"  
+            selectByExampleQueryId="true">  
+        </table>  
+        <table domainObjectName="SysUser" tableName="SYSUSER"  
+            enableCountByExample="false" enableUpdateByExample="true"  
+            enableDeleteByExample="false" enableSelectByExample="true"  
+            selectByExampleQueryId="true">  
+        </table>   -->
+         <table domainObjectName="UserGys" tableName="USERGYS"  
+            enableCountByExample="false" enableUpdateByExample="true"  
+            enableDeleteByExample="false" enableSelectByExample="true"  
+            selectByExampleQueryId="true">  
+        </table>  
+    </context>  
+</generatorConfiguration> 

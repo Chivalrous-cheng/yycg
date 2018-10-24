@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="yycg.base.dao.SysUserGysCoustomerMapper">
+
+	<sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+
+	<!--查询用户 包含查询条件 分页 -->
+	<!--sql片段 -->
+	<sql id="query_where">
+		<where>
+			<if test="usergyscoustomer!=null">
+				<if test="usergyscoustomer.mc!=null and usergyscoustomer.mc!=''">
+					and usergys.mc=#{usergyscoustomer.mc}
+				</if>
+				<if
+					test="usergyscoustomer.lb!=null and usergyscoustomer.lb!=''">
+					and usergys.lb=#{usergyscoustomer.lb}
+				</if>
+				<if test="usergyscoustomer.mc!=null and usergyscoustomer.mc!=''">
+					and usergys.mc like '%${usergyscoustomer.mc}%'
+				</if>
+				<if
+					test="usergyscoustomer.lxr!=null and usergyscoustomer.lxr!=''">
+					and usergys.lxr=#{usergyscoustomer.lxr}
+				</if>
+				<if
+					test="usergyscoustomer.dh!=null and usergyscoustomer.dh!=''">
+					and usergys.dh=#{usergyscoustomer.dh}
+				</if>
+				<if
+					test="usergyscoustomer.bz!=null and usergyscoustomer.bz!=''">
+					and usergys.bz=#{usergyscoustomer.bz}
+				</if>
+			</if>
+		</where>
+	</sql>
+	
+	<select id="findUserGys" resultType="yycg.base.pojo.vo.UserGysCoustomer"
+		parameterType="yycg.base.pojo.vo.UserGysVo">
+		<!-- 分页 -->
+		<if test="pageQuery!=null">
+			select *
+			from (select page_1.*, rownum rn
+			from (
+		</if>
+		<![CDATA[
+		select * from usergys
+		]]>
+		<!--引用sql片段 -->
+		<include refid="query_where"></include>
+		<if test="pageQuery!=null">
+		<![CDATA[
+		) page_1
+         where rownum <= #{pageQuery.PageQuery_end}) page_2
+ where rn > #{pageQuery.PageQuery_start}
+ ]]>
+		</if>
+	</select>
+	
+	
+	
+	<!-- 统计总记录树 -->
+	<select id="findTotalItem" parameterType="yycg.base.pojo.vo.UserGysVo" resultType="int">
+	 select    count(id)
+                  from (select *
+                          from usergys) usergys
+               <include refid="query_where"></include>
+	
+	</select>
+	
+	<select id="findUserGysById" parameterType="String" resultType="yycg.base.pojo.vo.UserGysCoustomer">
+	 select *
+       from usergys t
+       where t.id = #{id,jdbcType=VARCHAR}
+               
+	</select>
+	
+	<insert id="insert" parameterType="yycg.base.pojo.po.UserGys" >
+    insert into USERGYS (ID, MC, LB, XKZ, 
+      XKZYXQ, LXR, DH, JYFW, 
+      ZCDZ, LXDZ, YZBM, ZZC, 
+      CZ, FRMC, FRSFZ, ZCZJ, 
+      XSE, DZYX, WZ, DMZH, 
+      DMZHYXQ, YYZZ, YYZZYXQ, 
+      XYZ, XYZBM, XYZYXQ, GDZC, 
+      BZ, VCHAR1, VCHAR2, 
+      VCHAR3, VCHAR4, VCHAR5, 
+      JJ)
+    values (#{id,jdbcType=VARCHAR}, #{mc,jdbcType=VARCHAR}, #{lb,jdbcType=VARCHAR}, #{xkz,jdbcType=VARCHAR}, 
+      #{xkzyxq,jdbcType=VARCHAR}, #{lxr,jdbcType=VARCHAR}, #{dh,jdbcType=VARCHAR}, #{jyfw,jdbcType=VARCHAR}, 
+      #{zcdz,jdbcType=VARCHAR}, #{lxdz,jdbcType=VARCHAR}, #{yzbm,jdbcType=VARCHAR}, #{zzc,jdbcType=VARCHAR}, 
+      #{cz,jdbcType=VARCHAR}, #{frmc,jdbcType=VARCHAR}, #{frsfz,jdbcType=VARCHAR}, #{zczj,jdbcType=VARCHAR}, 
+      #{xse,jdbcType=VARCHAR}, #{dzyx,jdbcType=VARCHAR}, #{wz,jdbcType=VARCHAR}, #{dmzh,jdbcType=VARCHAR}, 
+      #{dmzhyxq,jdbcType=VARCHAR}, #{yyzz,jdbcType=VARCHAR}, #{yyzzyxq,jdbcType=VARCHAR}, 
+      #{xyz,jdbcType=CHAR}, #{xyzbm,jdbcType=VARCHAR}, #{xyzyxq,jdbcType=VARCHAR}, #{gdzc,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR}, #{vchar1,jdbcType=VARCHAR}, #{vchar2,jdbcType=VARCHAR}, 
+      #{vchar3,jdbcType=VARCHAR}, #{vchar4,jdbcType=VARCHAR}, #{vchar5,jdbcType=VARCHAR}, 
+      #{jj,jdbcType=CLOB})
+  </insert>
+  
+  <update id="updatetUser" parameterType="yycg.base.pojo.po.UserGys">
+  update USERGYS
+    set MC = #{mc,jdbcType=VARCHAR},
+      LB = #{lb,jdbcType=VARCHAR},
+      XKZ = #{xkz,jdbcType=VARCHAR},
+      XKZYXQ = #{xkzyxq,jdbcType=VARCHAR},
+      LXR = #{lxr,jdbcType=VARCHAR},
+      DH = #{dh,jdbcType=VARCHAR},
+      JYFW = #{jyfw,jdbcType=VARCHAR},
+      ZCDZ = #{zcdz,jdbcType=VARCHAR},
+      LXDZ = #{lxdz,jdbcType=VARCHAR},
+      YZBM = #{yzbm,jdbcType=VARCHAR},
+      ZZC = #{zzc,jdbcType=VARCHAR},
+      CZ = #{cz,jdbcType=VARCHAR},
+      FRMC = #{frmc,jdbcType=VARCHAR},
+      FRSFZ = #{frsfz,jdbcType=VARCHAR},
+      ZCZJ = #{zczj,jdbcType=VARCHAR},
+      XSE = #{xse,jdbcType=VARCHAR},
+      DZYX = #{dzyx,jdbcType=VARCHAR},
+      WZ = #{wz,jdbcType=VARCHAR},
+      DMZH = #{dmzh,jdbcType=VARCHAR},
+      DMZHYXQ = #{dmzhyxq,jdbcType=VARCHAR},
+      YYZZ = #{yyzz,jdbcType=VARCHAR},
+      YYZZYXQ = #{yyzzyxq,jdbcType=VARCHAR},
+      XYZ = #{xyz,jdbcType=CHAR},
+      XYZBM = #{xyzbm,jdbcType=VARCHAR},
+      XYZYXQ = #{xyzyxq,jdbcType=VARCHAR},
+      GDZC = #{gdzc,jdbcType=VARCHAR},
+      BZ = #{bz,jdbcType=VARCHAR},
+      JJ = #{jj,jdbcType=VARCHAR},
+      VCHAR1 = #{vchar1,jdbcType=VARCHAR},
+      VCHAR2 = #{vchar2,jdbcType=VARCHAR},
+      VCHAR3 = #{vchar3,jdbcType=VARCHAR},
+      VCHAR4 = #{vchar4,jdbcType=VARCHAR},
+      VCHAR5 = #{vchar5,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <delete id="deleteUserById" parameterType="String">
+  delete usergys where id = #{id,jdbcType=VARCHAR}
+  </delete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>

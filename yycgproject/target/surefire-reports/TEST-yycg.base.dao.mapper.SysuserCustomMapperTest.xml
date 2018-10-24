@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="0" time="1.152" errors="1" skipped="0" tests="1" name="yycg.base.dao.mapper.SysuserCustomMapperTest">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.7.0_79\jre\bin"/>
+    <property name="java.vm.version" value="24.79-b02"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\yycg\yycgproject"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\yycg\yycgproject"/>
+    <property name="java.runtime.version" value="1.7.0_79-b15"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files (x86)\Java\jdk1.7.0_79\jre\lib\endorsed"/>
+    <property name="os.arch" value="x86"/>
+    <property name="java.io.tmpdir" value="C:\Users\ADMINI~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="D:\workspace\wstmp2\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5067344307710134685.tmp"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Program Files (x86)\Java\jdk1.7.0_79\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files (x86)/Java/jre7/bin/client;C:/Program Files (x86)/Java/jre7/bin;C:/Program Files (x86)/Java/jre7/lib/i386;C:\Program Files (x86)\Rational\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\MySQL\MySQL Server 5.5\bin;C:\Program Files (x86)\Java\jdk1.7.0_79\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Subversion\bin;C:\Program Files\TortoiseSVN\bin;D:\apache-maven-3.0.5\bin;C:\Program Files\VisualSVN Server\bin;C:\Program Files\VanDyke Software\Clients\;D:\home\apache-maven-3.3.3\bin;D:\home\redis;C:\Python34;C:\Python34\Scripts;D:\home\apache-maven-3.3.3\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\ide\eclipse;;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="51.0"/>
+    <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\Administrator"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.7"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="user.name" value="Administrator"/>
+    <property name="java.class.path" value="D:\home\apache-maven-3.3.3\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.7"/>
+    <property name="sun.arch.data.model" value="32"/>
+    <property name="java.home" value="C:\Program Files (x86)\Java\jdk1.7.0_79\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B -s D:\home\apache-maven-3.3.3\conf\settings.xml install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="1.7.0_79"/>
+    <property name="java.ext.dirs" value="C:\Program Files (x86)\Java\jdk1.7.0_79\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files (x86)\Java\jdk1.7.0_79\jre\lib\resources.jar;C:\Program Files (x86)\Java\jdk1.7.0_79\jre\lib\rt.jar;C:\Program Files (x86)\Java\jdk1.7.0_79\jre\lib\sunrsasign.jar;C:\Program Files (x86)\Java\jdk1.7.0_79\jre\lib\jsse.jar;C:\Program Files (x86)\Java\jdk1.7.0_79\jre\lib\jce.jar;C:\Program Files (x86)\Java\jdk1.7.0_79\jre\lib\charsets.jar;C:\Program Files (x86)\Java\jdk1.7.0_79\jre\lib\jfr.jar;C:\Program Files (x86)\Java\jdk1.7.0_79\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="D:\home\apache-maven-3.3.3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
+  </properties>
+  <testcase time="1.152" classname="yycg.base.dao.mapper.SysuserCustomMapperTest" name="testFindSysuserById">
+    <error message="Invalid bound statement (not found): yycg.base.dao.mapper.SysuserCustomMapper.findSysuserById" type="org.apache.ibatis.binding.BindingException">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): yycg.base.dao.mapper.SysuserCustomMapper.findSysuserById
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.&lt;init&gt;(MapperMethod.java:184)
+	at org.apache.ibatis.binding.MapperMethod.&lt;init&gt;(MapperMethod.java:38)
+	at org.apache.ibatis.binding.MapperProxy.cachedMapperMethod(MapperProxy.java:49)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:42)
+	at com.sun.proxy.$Proxy6.findSysuserById(Unknown Source)
+	at yycg.base.dao.mapper.SysuserCustomMapperTest.testFindSysuserById(SysuserCustomMapperTest.java:29)
+</error>
+    <system-out>DEBUG [main] - Initializing new StandardEnvironment
+DEBUG [main] - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG [main] - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG [main] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+ INFO [main] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@18b492: startup date [Tue Dec 19 17:18:01 CST 2017]; root of context hierarchy
+DEBUG [main] - Initializing new StandardEnvironment
+DEBUG [main] - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG [main] - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG [main] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG [main] - Initializing new StandardEnvironment
+DEBUG [main] - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG [main] - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG [main] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+ INFO [main] - Loading XML bean definitions from class path resource [spring/applicationContext.xml]
+DEBUG [main] - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+DEBUG [main] - Loading schema mappings from [META-INF/spring.schemas]
+DEBUG [main] - Loaded schema mappings: {http://mybatis.org/schema/mybatis-spring-1.2.xsd=org/mybatis/spring/config/mybatis-spring-1.2.xsd, http://www.springframework.org/schema/util/spring-util.xsd=org/springframework/beans/factory/xml/spring-util-3.1.xsd, http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd=org/springframework/web/servlet/config/spring-mvc-3.1.xsd, http://www.springframework.org/schema/beans/spring-beans-3.1.xsd=org/springframework/beans/factory/xml/spring-beans-3.1.xsd, http://www.springframework.org/schema/task/spring-task.xsd=org/springframework/scheduling/config/spring-task-3.1.xsd, http://www.springframework.org/schema/cache/spring-cache.xsd=org/springframework/cache/config/spring-cache-3.1.xsd, http://www.springframework.org/schema/aop/spring-aop-3.0.xsd=org/springframework/aop/config/spring-aop-3.0.xsd, http://www.springframework.org/schema/aop/spring-aop-2.0.xsd=org/springframework/aop/config/spring-aop-2.0.xsd, http://www.springframework.org/schema/task/spring-task-3.1.xsd=org/springframework/scheduling/config/spring-task-3.1.xsd, http://www.springframework.org/schema/tool/spring-tool-2.5.xsd=org/springframework/beans/factory/xml/spring-tool-2.5.xsd, http://www.springframework.org/schema/beans/spring-beans.xsd=org/springframework/beans/factory/xml/spring-beans-3.1.xsd, http://www.springframework.org/schema/jee/spring-jee-2.5.xsd=org/springframework/ejb/config/spring-jee-2.5.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd=org/springframework/jdbc/config/spring-jdbc-3.1.xsd, http://www.springframework.org/schema/tool/spring-tool-3.1.xsd=org/springframework/beans/factory/xml/spring-tool-3.1.xsd, http://www.springframework.org/schema/aop/spring-aop.xsd=org/springframework/aop/config/spring-aop-3.1.xsd, http://www.springframework.org/schema/jee/spring-jee-3.1.xsd=org/springframework/ejb/config/spring-jee-3.1.xsd, http://www.springframework.org/schema/beans/spring-beans-2.0.xsd=org/springframework/beans/factory/xml/spring-beans-2.0.xsd, http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd=org/springframework/web/servlet/config/spring-mvc-3.0.xsd, http://www.springframework.org/schema/beans/spring-beans-3.0.xsd=org/springframework/beans/factory/xml/spring-beans-3.0.xsd, http://www.springframework.org/schema/task/spring-task-3.0.xsd=org/springframework/scheduling/config/spring-task-3.0.xsd, http://mybatis.org/schema/mybatis-spring.xsd=org/mybatis/spring/config/mybatis-spring-1.2.xsd, http://www.springframework.org/schema/tx/spring-tx-2.5.xsd=org/springframework/transaction/config/spring-tx-2.5.xsd, http://www.springframework.org/schema/context/spring-context-2.5.xsd=org/springframework/context/config/spring-context-2.5.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd=org/springframework/jdbc/config/spring-jdbc-3.0.xsd, http://www.springframework.org/schema/tool/spring-tool-3.0.xsd=org/springframework/beans/factory/xml/spring-tool-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx.xsd=org/springframework/transaction/config/spring-tx-3.1.xsd, http://www.springframework.org/schema/tool/spring-tool-2.0.xsd=org/springframework/beans/factory/xml/spring-tool-2.0.xsd, http://www.springframework.org/schema/util/spring-util-2.5.xsd=org/springframework/beans/factory/xml/spring-util-2.5.xsd, http://www.springframework.org/schema/lang/spring-lang.xsd=org/springframework/scripting/config/spring-lang-3.1.xsd, http://www.springframework.org/schema/lang/spring-lang-2.5.xsd=org/springframework/scripting/config/spring-lang-2.5.xsd, http://www.springframework.org/schema/jee/spring-jee-3.0.xsd=org/springframework/ejb/config/spring-jee-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx-3.1.xsd=org/springframework/transaction/config/spring-tx-3.1.xsd, http://www.springframework.org/schema/jee/spring-jee-2.0.xsd=org/springframework/ejb/config/spring-jee-2.0.xsd, http://www.springframework.org/schema/context/spring-context-3.1.xsd=org/springframework/context/config/spring-context-3.1.xsd, http://www.springframework.org/schema/util/spring-util-3.1.xsd=org/springframework/beans/factory/xml/spring-util-3.1.xsd, http://www.springframework.org/schema/lang/spring-lang-3.1.xsd=org/springframework/scripting/config/spring-lang-3.1.xsd, http://www.springframework.org/schema/cache/spring-cache-3.1.xsd=org/springframework/cache/config/spring-cache-3.1.xsd, http://www.springframework.org/schema/context/spring-context.xsd=org/springframework/context/config/spring-context-3.1.xsd, http://www.springframework.org/schema/jee/spring-jee.xsd=org/springframework/ejb/config/spring-jee-3.1.xsd, http://www.springframework.org/schema/aop/spring-aop-2.5.xsd=org/springframework/aop/config/spring-aop-2.5.xsd, http://www.springframework.org/schema/mvc/spring-mvc.xsd=org/springframework/web/servlet/config/spring-mvc-3.1.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc.xsd=org/springframework/jdbc/config/spring-jdbc-3.1.xsd, http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd=org/directwebremoting/spring/spring-dwr-2.0.xsd, http://www.springframework.org/schema/tx/spring-tx-2.0.xsd=org/springframework/transaction/config/spring-tx-2.0.xsd, http://www.springframework.org/schema/aop/spring-aop-3.1.xsd=org/springframework/aop/config/spring-aop-3.1.xsd, http://www.springframework.org/schema/tx/spring-tx-3.0.xsd=org/springframework/transaction/config/spring-tx-3.0.xsd, http://www.springframework.org/schema/context/spring-context-3.0.xsd=org/springframework/context/config/spring-context-3.0.xsd, http://www.springframework.org/schema/tool/spring-tool.xsd=org/springframework/beans/factory/xml/spring-tool-3.1.xsd, http://www.springframework.org/schema/util/spring-util-3.0.xsd=org/springframework/beans/factory/xml/spring-util-3.0.xsd, http://www.springframework.org/schema/lang/spring-lang-3.0.xsd=org/springframework/scripting/config/spring-lang-3.0.xsd, http://www.springframework.org/schema/util/spring-util-2.0.xsd=org/springframework/beans/factory/xml/spring-util-2.0.xsd, http://www.springframework.org/schema/lang/spring-lang-2.0.xsd=org/springframework/scripting/config/spring-lang-2.0.xsd, http://www.springframework.org/schema/beans/spring-beans-2.5.xsd=org/springframework/beans/factory/xml/spring-beans-2.5.xsd}
+DEBUG [main] - Found XML schema [http://www.springframework.org/schema/beans/spring-beans-3.1.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.1.xsd
+DEBUG [main] - Found XML schema [http://www.springframework.org/schema/context/spring-context-3.1.xsd] in classpath: org/springframework/context/config/spring-context-3.1.xsd
+DEBUG [main] - Found XML schema [http://www.springframework.org/schema/tool/spring-tool-3.1.xsd] in classpath: org/springframework/beans/factory/xml/spring-tool-3.1.xsd
+DEBUG [main] - Found XML schema [http://www.springframework.org/schema/tx/spring-tx-3.1.xsd] in classpath: org/springframework/transaction/config/spring-tx-3.1.xsd
+DEBUG [main] - Found XML schema [http://www.springframework.org/schema/aop/spring-aop-3.1.xsd] in classpath: org/springframework/aop/config/spring-aop-3.1.xsd
+DEBUG [main] - Loading bean definitions
+DEBUG [main] - Loaded NamespaceHandler mappings: {http://www.springframework.org/schema/p=org.springframework.beans.factory.xml.SimplePropertyNamespaceHandler, http://www.springframework.org/schema/mvc=org.springframework.web.servlet.config.MvcNamespaceHandler, http://www.springframework.org/schema/util=org.springframework.beans.factory.xml.UtilNamespaceHandler, http://www.springframework.org/schema/jee=org.springframework.ejb.config.JeeNamespaceHandler, http://www.springframework.org/schema/aop=org.springframework.aop.config.AopNamespaceHandler, http://www.springframework.org/schema/jdbc=org.springframework.jdbc.config.JdbcNamespaceHandler, http://www.springframework.org/schema/cache=org.springframework.cache.config.CacheNamespaceHandler, http://mybatis.org/schema/mybatis-spring=org.mybatis.spring.config.NamespaceHandler, http://www.directwebremoting.org/schema/spring-dwr=org.directwebremoting.spring.DwrAnnotationNamespaceHandler, http://www.springframework.org/schema/c=org.springframework.beans.factory.xml.SimpleConstructorNamespaceHandler, http://www.springframework.org/schema/tx=org.springframework.transaction.config.TxNamespaceHandler, http://www.springframework.org/schema/task=org.springframework.scheduling.config.TaskNamespaceHandler, http://www.springframework.org/schema/lang=org.springframework.scripting.config.LangNamespaceHandler, http://www.springframework.org/schema/context=org.springframework.context.config.ContextNamespaceHandler}
+DEBUG [main] - Loaded 6 bean definitions from location pattern [spring/applicationContext.xml]
+ INFO [main] - Loading XML bean definitions from class path resource [spring/applicationContext-base-dao.xml]
+DEBUG [main] - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+DEBUG [main] - Found XML schema [http://www.springframework.org/schema/beans/spring-beans-3.1.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.1.xsd
+DEBUG [main] - Loading bean definitions
+DEBUG [main] - Neither XML &apos;id&apos; nor &apos;name&apos; specified - using generated bean name [org.mybatis.spring.mapper.MapperScannerConfigurer#0]
+DEBUG [main] - Loaded 2 bean definitions from location pattern [spring/applicationContext-base-dao.xml]
+DEBUG [main] - Bean factory for org.springframework.context.support.ClassPathXmlApplicationContext@18b492: org.springframework.beans.factory.support.DefaultListableBeanFactory@dc0b2f: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,transactionManager,txAdvice,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0]; root of factory hierarchy
+DEBUG [main] - Creating shared instance of singleton bean &apos;org.mybatis.spring.mapper.MapperScannerConfigurer#0&apos;
+DEBUG [main] - Creating instance of bean &apos;org.mybatis.spring.mapper.MapperScannerConfigurer#0&apos;
+DEBUG [main] - Eagerly caching bean &apos;org.mybatis.spring.mapper.MapperScannerConfigurer#0&apos; to allow for resolving potential circular references
+DEBUG [main] - Invoking afterPropertiesSet() on bean with name &apos;org.mybatis.spring.mapper.MapperScannerConfigurer#0&apos;
+DEBUG [main] - Finished creating instance of bean &apos;org.mybatis.spring.mapper.MapperScannerConfigurer#0&apos;
+DEBUG [main] - Initializing new StandardEnvironment
+DEBUG [main] - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG [main] - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG [main] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG [main] - Looking for matching resources in directory tree [D:\yycg\yycgproject\target\test-classes\yycg\base\dao\mapper]
+DEBUG [main] - Searching directory [D:\yycg\yycgproject\target\test-classes\yycg\base\dao\mapper] for files matching pattern [D:/yycg/yycgproject/target/test-classes/yycg/base/dao/mapper/**/*.class]
+DEBUG [main] - Looking for matching resources in directory tree [D:\yycg\yycgproject\target\classes\yycg\base\dao\mapper]
+DEBUG [main] - Searching directory [D:\yycg\yycgproject\target\classes\yycg\base\dao\mapper] for files matching pattern [D:/yycg/yycgproject/target/classes/yycg/base/dao/mapper/**/*.class]
+DEBUG [main] - Resolved location pattern [classpath*:yycg/base/dao/mapper/**/*.class] to resources [file [D:\yycg\yycgproject\target\test-classes\yycg\base\dao\mapper\SysuserCustomMapperTest.class], file [D:\yycg\yycgproject\target\test-classes\yycg\base\dao\mapper\SysuserMapperTest.class], file [D:\yycg\yycgproject\target\classes\yycg\base\dao\mapper\SysuserCustomMapper.class], file [D:\yycg\yycgproject\target\classes\yycg\base\dao\mapper\SysuserMapper.class]]
+DEBUG [main] - Ignored because not a concrete top-level class: file [D:\yycg\yycgproject\target\test-classes\yycg\base\dao\mapper\SysuserCustomMapperTest.class]
+DEBUG [main] - Ignored because not a concrete top-level class: file [D:\yycg\yycgproject\target\test-classes\yycg\base\dao\mapper\SysuserMapperTest.class]
+DEBUG [main] - Identified candidate component class: file [D:\yycg\yycgproject\target\classes\yycg\base\dao\mapper\SysuserCustomMapper.class]
+DEBUG [main] - Identified candidate component class: file [D:\yycg\yycgproject\target\classes\yycg\base\dao\mapper\SysuserMapper.class]
+DEBUG [main] - Creating MapperFactoryBean with name &apos;sysuserCustomMapper&apos; and &apos;yycg.base.dao.mapper.SysuserCustomMapper&apos; mapperInterface
+DEBUG [main] - Creating MapperFactoryBean with name &apos;sysuserMapper&apos; and &apos;yycg.base.dao.mapper.SysuserMapper&apos; mapperInterface
+DEBUG [main] - Creating shared instance of singleton bean &apos;org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0&apos;
+DEBUG [main] - Creating instance of bean &apos;org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0&apos;
+DEBUG [main] - Eagerly caching bean &apos;org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0&apos; to allow for resolving potential circular references
+DEBUG [main] - Finished creating instance of bean &apos;org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0&apos;
+DEBUG [main] - Adding [environmentProperties] PropertySource with lowest search precedence
+ INFO [main] - Loading properties file from class path resource [db.properties]
+DEBUG [main] - Adding [localProperties] PropertySource with lowest search precedence
+DEBUG [main] - Searching for key &apos;jdbc.driver&apos; in [environmentProperties]
+DEBUG [main] - Searching for key &apos;jdbc.driver&apos; in [systemProperties]
+DEBUG [main] - Searching for key &apos;jdbc.driver&apos; in [systemEnvironment]
+DEBUG [main] - Could not find key &apos;jdbc.driver&apos; in any property source. Returning [null]
+DEBUG [main] - Searching for key &apos;jdbc.driver&apos; in [localProperties]
+DEBUG [main] - Found key &apos;jdbc.driver&apos; in [localProperties] with type [String] and value &apos;oracle.jdbc.driver.OracleDriver&apos;
+DEBUG [main] - Searching for key &apos;jdbc.url&apos; in [environmentProperties]
+DEBUG [main] - Searching for key &apos;jdbc.url&apos; in [systemProperties]
+DEBUG [main] - Searching for key &apos;jdbc.url&apos; in [systemEnvironment]
+DEBUG [main] - Could not find key &apos;jdbc.url&apos; in any property source. Returning [null]
+DEBUG [main] - Searching for key &apos;jdbc.url&apos; in [localProperties]
+DEBUG [main] - Found key &apos;jdbc.url&apos; in [localProperties] with type [String] and value &apos;jdbc:oracle:thin:@127.0.0.1:1521:orcl&apos;
+DEBUG [main] - Searching for key &apos;jdbc.username&apos; in [environmentProperties]
+DEBUG [main] - Searching for key &apos;jdbc.username&apos; in [systemProperties]
+DEBUG [main] - Searching for key &apos;jdbc.username&apos; in [systemEnvironment]
+DEBUG [main] - Could not find key &apos;jdbc.username&apos; in any property source. Returning [null]
+DEBUG [main] - Searching for key &apos;jdbc.username&apos; in [localProperties]
+DEBUG [main] - Found key &apos;jdbc.username&apos; in [localProperties] with type [String] and value &apos;yycg&apos;
+DEBUG [main] - Searching for key &apos;jdbc.password&apos; in [environmentProperties]
+DEBUG [main] - Searching for key &apos;jdbc.password&apos; in [systemProperties]
+DEBUG [main] - Searching for key &apos;jdbc.password&apos; in [systemEnvironment]
+DEBUG [main] - Could not find key &apos;jdbc.password&apos; in any property source. Returning [null]
+DEBUG [main] - Searching for key &apos;jdbc.password&apos; in [localProperties]
+DEBUG [main] - Found key &apos;jdbc.password&apos; in [localProperties] with type [String] and value &apos;yycg1234&apos;
+DEBUG [main] - Searching for key &apos;jdbc.maxActive&apos; in [environmentProperties]
+DEBUG [main] - Searching for key &apos;jdbc.maxActive&apos; in [systemProperties]
+DEBUG [main] - Searching for key &apos;jdbc.maxActive&apos; in [systemEnvironment]
+DEBUG [main] - Could not find key &apos;jdbc.maxActive&apos; in any property source. Returning [null]
+DEBUG [main] - Searching for key &apos;jdbc.maxActive&apos; in [localProperties]
+DEBUG [main] - Found key &apos;jdbc.maxActive&apos; in [localProperties] with type [String] and value &apos;5&apos;
+DEBUG [main] - Searching for key &apos;jdbc.maxIdle&apos; in [environmentProperties]
+DEBUG [main] - Searching for key &apos;jdbc.maxIdle&apos; in [systemProperties]
+DEBUG [main] - Searching for key &apos;jdbc.maxIdle&apos; in [systemEnvironment]
+DEBUG [main] - Could not find key &apos;jdbc.maxIdle&apos; in any property source. Returning [null]
+DEBUG [main] - Searching for key &apos;jdbc.maxIdle&apos; in [localProperties]
+DEBUG [main] - Found key &apos;jdbc.maxIdle&apos; in [localProperties] with type [String] and value &apos;2&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;org.springframework.context.annotation.internalConfigurationAnnotationProcessor&apos;
+DEBUG [main] - Creating instance of bean &apos;org.springframework.context.annotation.internalConfigurationAnnotationProcessor&apos;
+DEBUG [main] - Eagerly caching bean &apos;org.springframework.context.annotation.internalConfigurationAnnotationProcessor&apos; to allow for resolving potential circular references
+DEBUG [main] - Finished creating instance of bean &apos;org.springframework.context.annotation.internalConfigurationAnnotationProcessor&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;org.springframework.context.annotation.internalAutowiredAnnotationProcessor&apos;
+DEBUG [main] - Creating instance of bean &apos;org.springframework.context.annotation.internalAutowiredAnnotationProcessor&apos;
+DEBUG [main] - Eagerly caching bean &apos;org.springframework.context.annotation.internalAutowiredAnnotationProcessor&apos; to allow for resolving potential circular references
+DEBUG [main] - Finished creating instance of bean &apos;org.springframework.context.annotation.internalAutowiredAnnotationProcessor&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;org.springframework.context.annotation.internalRequiredAnnotationProcessor&apos;
+DEBUG [main] - Creating instance of bean &apos;org.springframework.context.annotation.internalRequiredAnnotationProcessor&apos;
+DEBUG [main] - Eagerly caching bean &apos;org.springframework.context.annotation.internalRequiredAnnotationProcessor&apos; to allow for resolving potential circular references
+DEBUG [main] - Finished creating instance of bean &apos;org.springframework.context.annotation.internalRequiredAnnotationProcessor&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;org.springframework.context.annotation.internalCommonAnnotationProcessor&apos;
+DEBUG [main] - Creating instance of bean &apos;org.springframework.context.annotation.internalCommonAnnotationProcessor&apos;
+DEBUG [main] - Eagerly caching bean &apos;org.springframework.context.annotation.internalCommonAnnotationProcessor&apos; to allow for resolving potential circular references
+DEBUG [main] - Finished creating instance of bean &apos;org.springframework.context.annotation.internalCommonAnnotationProcessor&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;org.springframework.aop.config.internalAutoProxyCreator&apos;
+DEBUG [main] - Creating instance of bean &apos;org.springframework.aop.config.internalAutoProxyCreator&apos;
+DEBUG [main] - Eagerly caching bean &apos;org.springframework.aop.config.internalAutoProxyCreator&apos; to allow for resolving potential circular references
+DEBUG [main] - Finished creating instance of bean &apos;org.springframework.aop.config.internalAutoProxyCreator&apos;
+DEBUG [main] - Unable to locate MessageSource with name &apos;messageSource&apos;: using default [org.springframework.context.support.DelegatingMessageSource@1ce6303]
+DEBUG [main] - Unable to locate ApplicationEventMulticaster with name &apos;applicationEventMulticaster&apos;: using default [org.springframework.context.event.SimpleApplicationEventMulticaster@18fad4b]
+ INFO [main] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@dc0b2f: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,transactionManager,txAdvice,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,sysuserCustomMapper,sysuserMapper,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;dataSource&apos;
+DEBUG [main] - Creating instance of bean &apos;dataSource&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Creating instance of bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Eagerly caching bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos; to allow for resolving potential circular references
+DEBUG [main] - Creating instance of bean &apos;(inner bean)&apos;
+DEBUG [main] - Finished creating instance of bean &apos;(inner bean)&apos;
+DEBUG [main] - Finished creating instance of bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Eagerly caching bean &apos;dataSource&apos; to allow for resolving potential circular references
+DEBUG [main] - Initializing new StandardEnvironment
+DEBUG [main] - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG [main] - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG [main] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG [main] - Initializing new StandardEnvironment
+DEBUG [main] - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG [main] - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG [main] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG [main] - Initializing new StandardEnvironment
+DEBUG [main] - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG [main] - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG [main] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG [main] - Initializing new StandardEnvironment
+DEBUG [main] - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG [main] - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG [main] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG [main] - Initializing new StandardEnvironment
+DEBUG [main] - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG [main] - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG [main] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Finished creating instance of bean &apos;dataSource&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;transactionManager&apos;
+DEBUG [main] - Creating instance of bean &apos;transactionManager&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Eagerly caching bean &apos;transactionManager&apos; to allow for resolving potential circular references
+DEBUG [main] - Returning cached instance of singleton bean &apos;dataSource&apos;
+DEBUG [main] - Invoking afterPropertiesSet() on bean with name &apos;transactionManager&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Finished creating instance of bean &apos;transactionManager&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;txAdvice&apos;
+DEBUG [main] - Creating instance of bean &apos;txAdvice&apos;
+DEBUG [main] - Eagerly caching bean &apos;txAdvice&apos; to allow for resolving potential circular references
+DEBUG [main] - Returning cached instance of singleton bean &apos;transactionManager&apos;
+DEBUG [main] - Creating instance of bean &apos;(inner bean)#1&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Adding transactional method [save*] with attribute [PROPAGATION_REQUIRED,ISOLATION_DEFAULT,-java.lang.Exception]
+DEBUG [main] - Adding transactional method [insert*] with attribute [PROPAGATION_REQUIRED,ISOLATION_DEFAULT,-java.lang.Exception]
+DEBUG [main] - Adding transactional method [delete*] with attribute [PROPAGATION_REQUIRED,ISOLATION_DEFAULT,-java.lang.Exception]
+DEBUG [main] - Adding transactional method [update*] with attribute [PROPAGATION_REQUIRED,ISOLATION_DEFAULT,-java.lang.Exception]
+DEBUG [main] - Adding transactional method [find*] with attribute [PROPAGATION_SUPPORTS,ISOLATION_DEFAULT,readOnly]
+DEBUG [main] - Adding transactional method [get*] with attribute [PROPAGATION_SUPPORTS,ISOLATION_DEFAULT,readOnly]
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Finished creating instance of bean &apos;(inner bean)#1&apos;
+DEBUG [main] - Invoking afterPropertiesSet() on bean with name &apos;txAdvice&apos;
+DEBUG [main] - Finished creating instance of bean &apos;txAdvice&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.config.internalAutoProxyCreator&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;sqlSessionFactory&apos;
+DEBUG [main] - Creating instance of bean &apos;sqlSessionFactory&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Logging initialized using &apos;class org.apache.ibatis.logging.slf4j.Slf4jImpl&apos; adapter.
+DEBUG [main] - Eagerly caching bean &apos;sqlSessionFactory&apos; to allow for resolving potential circular references
+DEBUG [main] - Returning cached instance of singleton bean &apos;dataSource&apos;
+DEBUG [main] - Invoking afterPropertiesSet() on bean with name &apos;sqlSessionFactory&apos;
+DEBUG [main] - Parsed configuration file: &apos;class path resource [mybatis/SqlMapConfig.xml]&apos;
+DEBUG [main] - Property &apos;mapperLocations&apos; was not specified or no matching resources found
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Finished creating instance of bean &apos;sqlSessionFactory&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.mybatis.spring.mapper.MapperScannerConfigurer#0&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;sysuserCustomMapper&apos;
+DEBUG [main] - Creating instance of bean &apos;sysuserCustomMapper&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Eagerly caching bean &apos;sysuserCustomMapper&apos; to allow for resolving potential circular references
+DEBUG [main] - Returning cached instance of singleton bean &apos;sqlSessionFactory&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Invoking afterPropertiesSet() on bean with name &apos;sysuserCustomMapper&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Finished creating instance of bean &apos;sysuserCustomMapper&apos;
+DEBUG [main] - Creating shared instance of singleton bean &apos;sysuserMapper&apos;
+DEBUG [main] - Creating instance of bean &apos;sysuserMapper&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Eagerly caching bean &apos;sysuserMapper&apos; to allow for resolving potential circular references
+DEBUG [main] - Returning cached instance of singleton bean &apos;sqlSessionFactory&apos;
+DEBUG [main] - Invoking afterPropertiesSet() on bean with name &apos;sysuserMapper&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Finished creating instance of bean &apos;sysuserMapper&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.context.annotation.internalConfigurationAnnotationProcessor&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.context.annotation.internalAutowiredAnnotationProcessor&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.context.annotation.internalRequiredAnnotationProcessor&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.context.annotation.internalCommonAnnotationProcessor&apos;
+DEBUG [main] - Unable to locate LifecycleProcessor with name &apos;lifecycleProcessor&apos;: using default [org.springframework.context.support.DefaultLifecycleProcessor@1b43dd2]
+DEBUG [main] - Returning cached instance of singleton bean &apos;lifecycleProcessor&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;sqlSessionFactory&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;sysuserCustomMapper&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+DEBUG [main] - Returning cached instance of singleton bean &apos;org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0&apos;
+</system-out>
+  </testcase>
+</testsuite>

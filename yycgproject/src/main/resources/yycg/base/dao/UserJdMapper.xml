@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="yycg.base.dao.UserJdMapper" >
+
+<!--查询用户 包含查询条件 分页 -->
+	<!--sql片段 -->
+	<sql id="query_where">
+		<where>
+			<if test="userjdcoustomer!=null">
+				<if test="userjdcoustomer.mc!=null and userjdcoustomer.mc!=''">
+					and userjd.mc=#{userjdcoustomer.mc}
+				</if>
+				<if test="userjdcoustomer.dz!=null and userjdcoustomer.dz!=''">
+					and userjd.dz=#{userjdcoustomer.dz}
+				</if>
+				<if test="userjdcoustomer.yzbm!=null and userjdcoustomer.yzbm!=''">
+					and userjd.yzbm=#{userjdcoustomer.yzbm}
+				</if>
+				<if test="userjdcoustomer.dq!=null and userjdcoustomer.dq!=''">
+					and userjd.dq=#{userjdcoustomer.dq}
+				</if>
+			</if>
+		</where>
+	</sql>
+
+<select id="findAllUserJdTotalItem" parameterType="yycg.base.pojo.vo.UserJdVo" resultType="int">
+	select count(id) from (select * from userjd) userjd
+	<!--引用sql片段 -->
+	<include refid="query_where"></include>
+</select>
+
+<select id="findUserJd" parameterType="yycg.base.pojo.vo.UserJdVo" resultType="yycg.base.pojo.vo.UserJdCoustomer">
+	<!-- 分页 -->
+	<if test="pageQuery!=null">
+		select *
+		from (select page_1.*, rownum rn
+		from (
+	</if>
+	<![CDATA[
+	select * from userjd
+		]]>
+		<!--引用sql片段 -->
+		<include refid="query_where"></include>
+		<if test="pageQuery!=null">
+		<![CDATA[
+		) page_1
+         where rownum <= #{pageQuery.PageQuery_end}) page_2
+ where rn > #{pageQuery.PageQuery_start}
+ ]]>
+		</if>
+</select>
+
+<insert id="insertUserJd" parameterType="yycg.base.pojo.vo.UserJdVo">
+	insert into userjd values(#{id,jdbcType=VARCHAR},#{mc,jdbcType=VARCHAR},#{dz,jdbcType=VARCHAR},
+	#{yzbm,jdbcType=VARCHAR},#{lxr,jdbcType=VARCHAR},#{dh,jdbcType=VARCHAR},#{cz,jdbcType=VARCHAR},
+	#{dzyx,jdbcType=VARCHAR},#{wz,jdbcType=VARCHAR},#{vchar1,jdbcType=VARCHAR},#{vchar2,jdbcType=VARCHAR},
+	#{vchar3,jdbcType=VARCHAR},#{dq,jdbcType=VARCHAR})
+</insert>
+
+<select id="findUserJdById" parameterType="String" resultType="yycg.base.pojo.po.UserJD">
+select * from userjd 
+<if test="_parameter != null">
+     where id = #{id,jdbcType=VARCHAR}
+    </if>
+    
+</select>
+<update id="updatetUserJd" parameterType="yycg.base.pojo.vo.UserJdVo">
+	update userjd set
+	<set>
+		<if test="userjd.dz != null">
+		dz = #{dz,jdbcType=VARCHAR}
+		</if>
+		<if test="userjd.yzbm != null">
+		yzbm = #{yzbm,jdbcType=VARCHAR},
+		</if>
+		<if test="userjd.lxr != null">
+		lxr = #{lxr,jdbcType=VARCHAR},
+		</if>
+		<if test="userjd.dh != null">
+		dh = #{dh,jdbcType=VARCHAR},
+		</if>
+		<if test="userjd.cz != null">
+		cz = #{cz,jdbcType=VARCHAR},
+		</if>
+		<if test="userjd.dzyx != null">
+		dzyx = #{dzyx,jdbcType=VARCHAR},
+		</if>
+		<if test="userjd.wz != null">
+		wz = #{wz,jdbcType=VARCHAR},
+		</if>
+		<if test="userjd.dq != null">
+		 dq = #{dq,jdbcType=VARCHAR}
+		</if>
+	</set>	
+</update>
+
+<delete id="deleteUserJdById" parameterType="String">
+	delete userjd 
+	<if test="id != null">
+	 where id = #{idjdbcType=VARCHAR}
+	</if>
+</delete>
+</mapper>
